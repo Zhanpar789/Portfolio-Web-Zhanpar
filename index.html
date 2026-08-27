@@ -30,8 +30,8 @@
 <body class="bg-white text-primary font-sans antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-xl border-b border-border-light">
-        <div class="mx-auto px-6 lg:px-12">
+    <nav id="site-nav" class="site-nav fixed w-full z-50 top-0 bg-white/80 backdrop-blur-xl border-b border-border-light">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div class="flex justify-between items-center h-16">
                 <a href="#home" class="flex items-center gap-2 group">
                     <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-sm group-hover:scale-105 transition-transform">Z</div>
@@ -46,7 +46,7 @@
                     <a href="#contact" class="ml-2 px-5 py-2 rounded-lg text-sm font-medium bg-primary text-white hover:bg-primary-light transition-all">Let's Talk</a>
                 </div>
 
-                <button id="mobile-menu-btn" class="md:hidden text-primary hover:text-primary-light p-2 relative z-50">
+                <button id="mobile-menu-btn" class="md:hidden text-primary hover:text-primary-light p-2 relative z-50" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span class="w-5 h-5 flex flex-col justify-center gap-1.5">
                         <span class="hamburger-line block w-5 h-0.5 bg-primary rounded transition-all duration-300 origin-center"></span>
                         <span class="hamburger-line block w-5 h-0.5 bg-primary rounded transition-all duration-300 origin-center"></span>
@@ -55,7 +55,7 @@
                 </button>
             </div>
         </div>
-        <div class="md:hidden mobile-menu border-t border-border-light" id="mobile-menu">
+        <div class="md:hidden mobile-menu border-t border-border-light" id="mobile-menu" aria-hidden="true">
             <div class="px-6 py-4 space-y-1 bg-white">
                 <a href="#about" class="block px-4 py-3 rounded-lg text-primary-muted hover:text-primary hover:bg-gray-50 transition-all">About</a>
                 <a href="#skills" class="block px-4 py-3 rounded-lg text-primary-muted hover:text-primary hover:bg-gray-50 transition-all">Skills</a>
@@ -70,7 +70,7 @@
     <section id="home" class="min-h-screen flex items-center pt-24 pb-16 px-6 lg:px-12">
         <div class="max-w-7xl mx-auto w-full">
             <div class="grid lg:grid-cols-5 gap-8 xl:gap-12 items-center">
-                <div class="lg:col-span-3 space-y-8">
+                <div class="lg:col-span-3 space-y-8 hero-copy">
                     <div class="space-y-4 animate-fade-in-up">
                         <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
                             <span class="text-primary">Zhanpar</span><br>
@@ -88,37 +88,41 @@
                     </p>
 
                     <div class="flex flex-wrap gap-4 animate-fade-in-up-delay-2">
-                        <a href="#projects" class="group px-8 py-4 rounded-xl font-semibold bg-primary text-white hover:bg-primary-light transition-all flex items-center gap-2">
+                        <a href="#projects" class="button-primary group px-8 py-4 rounded-xl font-semibold bg-primary text-white hover:bg-primary-light transition-all flex items-center gap-2">
                             View My Work
                             <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="mailto:zhanfar.isman@gmail.com" class="px-8 py-4 rounded-xl font-semibold border border-border hover:bg-gray-50 transition-all flex items-center gap-2">
+                        <a href="mailto:zhanfar.isman@gmail.com" class="button-secondary px-8 py-4 rounded-xl font-semibold border border-border hover:bg-gray-50 transition-all flex items-center gap-2">
                             <i data-lucide="mail" class="w-4 h-4"></i>
                             Say Hello
                         </a>
                     </div>
 
                     <div class="flex items-center gap-5 pt-4 animate-fade-in-up-delay-2">
-                        <a href="https://github.com/Zhanpar789" target="_blank" class="text-primary-muted hover:text-primary hover:scale-110 transition-all">
+                        <a href="https://github.com/Zhanpar789" target="_blank" rel="noreferrer" class="text-primary-muted hover:text-primary hover:scale-110 transition-all">
                             <i class="fa-brands fa-github text-xl"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/zhanparismanandria/" target="_blank" class="text-primary-muted hover:text-primary hover:scale-110 transition-all">
+                        <a href="https://www.linkedin.com/in/zhanparismanandria/" target="_blank" rel="noreferrer" class="text-primary-muted hover:text-primary hover:scale-110 transition-all">
                             <i class="fa-brands fa-linkedin text-xl"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="lg:col-span-2 animate-fade-in-up-delay">
-                    <div class="relative">
-                        <div class="relative bg-gray-50 rounded-2xl border border-border overflow-hidden shadow-sm">
+                <div class="lg:col-span-2 animate-fade-in-up-delay hero-terminal-wrap">
+                    <div class="relative terminal-shell">
+                        <div class="terminal-orbit terminal-orbit-one"></div>
+                        <div class="terminal-orbit terminal-orbit-two"></div>
+                        <div class="qa-terminal relative bg-gray-50 rounded-2xl border border-border overflow-hidden shadow-sm" aria-label="Animated QA test suite results">
                             <div class="bg-white px-5 py-3 flex items-center gap-2 border-b border-border">
                                 <div class="flex gap-1.5">
                                     <div class="w-3 h-3 rounded-full bg-red-400"></div>
                                     <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
                                     <div class="w-3 h-3 rounded-full bg-green-400"></div>
                                 </div>
-                                <span class="ml-2 text-xs text-primary-muted font-mono">qa-suite — running</span>
+                                <span class="ml-2 text-xs text-primary-muted font-mono">qa-suite / regression</span>
+                                <span class="terminal-status ml-auto text-[10px] font-mono font-medium uppercase tracking-wider">Running</span>
                             </div>
+                            <div class="terminal-progress" aria-hidden="true"><span></span></div>
                             <div class="p-5 font-mono text-sm space-y-2">
                                 <div class="flex items-center gap-2 text-primary-muted">
                                     <span class="text-accent">$</span> <span>npx cypress run</span>
@@ -173,14 +177,14 @@
                                         <span>Avg Response: 187ms</span>
                                     </div>
                                 </div>
-                                <div class="border-t border-border pt-3 mt-3">
+                                <div class="terminal-summary border-t border-border pt-3 mt-3">
                                     <div class="flex items-center justify-between text-xs">
                                         <span class="text-primary-muted">Coverage</span>
                                         <span class="text-accent">Web · Mobile · API</span>
                                     </div>
                                     <div class="flex items-center justify-between text-xs mt-1">
                                         <span class="text-primary-muted">Status</span>
-                                        <span class="text-green-600 font-bold">ALL PASSED</span>
+                                        <span class="terminal-result text-green-600 font-bold">ALL PASSED</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 text-primary-muted/50 pt-2">
@@ -200,15 +204,15 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="stat-card bg-gray-50 rounded-xl border border-border p-6 text-center hover:bg-white hover:shadow-sm transition-all">
-                    <div class="text-3xl font-bold text-primary mb-1">3+</div>
+                    <div class="stat-number text-3xl font-bold text-primary mb-1" data-count="3" data-suffix="+">3+</div>
                     <div class="text-sm text-primary-muted">Years Experience</div>
                 </div>
                 <div class="stat-card bg-gray-50 rounded-xl border border-border p-6 text-center hover:bg-white hover:shadow-sm transition-all">
-                    <div class="text-3xl font-bold text-primary mb-1">3</div>
+                    <div class="stat-number text-3xl font-bold text-primary mb-1" data-count="3">3</div>
                     <div class="text-sm text-primary-muted">Testing Domains</div>
                 </div>
                 <div class="stat-card bg-gray-50 rounded-xl border border-border p-6 text-center hover:bg-white hover:shadow-sm transition-all">
-                    <div class="text-3xl font-bold text-primary mb-1">10+</div>
+                    <div class="stat-number text-3xl font-bold text-primary mb-1" data-count="10" data-suffix="+">10+</div>
                     <div class="text-sm text-primary-muted">Tools Mastered</div>
                 </div>
                 <div class="stat-card bg-gray-50 rounded-xl border border-border p-6 text-center hover:bg-white hover:shadow-sm transition-all">
@@ -222,7 +226,7 @@
     <!-- About Section -->
     <section id="about" class="py-20 px-6 lg:px-12 bg-gray-50/50">
         <div class="max-w-5xl mx-auto">
-            <div class="mb-12">
+            <div class="section-heading mb-12">
                 <p class="text-accent font-medium text-sm mb-2 uppercase tracking-wider">About Me</p>
                 <h2 class="text-4xl sm:text-5xl font-bold text-primary">Get To Know Me</h2>
             </div>
@@ -236,21 +240,21 @@
                     </p>
                 </div>
                 <div class="space-y-4">
-                    <div class="bg-white rounded-xl border border-border p-5">
+                    <div class="info-card bg-white rounded-xl border border-border p-5">
                         <div class="flex items-center gap-3 mb-2">
                             <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
                             <span class="font-medium">Location</span>
                         </div>
                         <p class="text-primary-muted">Bandung, Indonesia</p>
                     </div>
-                    <div class="bg-white rounded-xl border border-border p-5">
+                    <div class="info-card bg-white rounded-xl border border-border p-5">
                         <div class="flex items-center gap-3 mb-2">
                             <i data-lucide="briefcase" class="w-5 h-5 text-accent"></i>
                             <span class="font-medium">Experience</span>
                         </div>
                         <p class="text-primary-muted">3+ Years</p>
                     </div>
-                    <div class="bg-white rounded-xl border border-border p-5">
+                    <div class="info-card bg-white rounded-xl border border-border p-5">
                         <div class="flex items-center gap-3 mb-2">
                             <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
                             <span class="font-medium">Email</span>
@@ -265,7 +269,7 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 px-6 lg:px-12">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-12">
+            <div class="section-heading mb-12">
                 <p class="text-accent font-medium text-sm mb-2 uppercase tracking-wider">What I Work With</p>
                 <h2 class="text-4xl sm:text-5xl font-bold text-primary">Technical Skills</h2>
                 <p class="text-primary-muted text-lg mt-4">The tools and technologies I use to ensure software quality at every level.</p>
@@ -283,7 +287,7 @@
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Selenium</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Appium</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">WebdriverIO</span>
-                        <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Mocha & Chai</span>
+                        <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Mocha &amp; Chai</span>
                     </div>
                 </div>
 
@@ -291,7 +295,7 @@
                     <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5 text-accent">
                         <i data-lucide="server" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-4">API & Performance</h3>
+                    <h3 class="text-xl font-bold text-primary mb-4">API &amp; Performance</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Postman</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Apache JMeter</span>
@@ -317,7 +321,7 @@
                     <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5 text-accent">
                         <i data-lucide="workflow" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-4">CI/CD & Workflow</h3>
+                    <h3 class="text-xl font-bold text-primary mb-4">CI/CD &amp; Workflow</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">GitHub Actions</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Jenkins</span>
@@ -336,7 +340,7 @@
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Gherkin / BDD</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">UAT</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Regression Testing</span>
-                        <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Mobile Testing (Android & iOS)</span>
+                        <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Mobile Testing (Android &amp; iOS)</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">Database Validation</span>
                         <span class="px-3 py-1.5 rounded-md bg-gray-50 text-sm text-primary-muted border border-border">PR Review</span>
                     </div>
@@ -348,14 +352,15 @@
     <!-- Experience Section -->
     <section id="experience" class="py-20 px-6 lg:px-12 bg-gray-50/50">
         <div class="max-w-5xl mx-auto">
-            <div class="mb-12">
+            <div class="section-heading mb-12">
                 <p class="text-accent font-medium text-sm mb-2 uppercase tracking-wider">Where I've Worked</p>
                 <h2 class="text-4xl sm:text-5xl font-bold text-primary">Work Experience</h2>
                 <p class="text-primary-muted text-lg mt-4">My professional journey in software quality assurance.</p>
             </div>
 
-            <div class="space-y-6">
-                <div class="experience-card group bg-white rounded-2xl border border-border p-8 sm:p-10 hover:shadow-md transition-all duration-300">
+            <div class="experience-timeline space-y-6">
+                <div class="experience-card is-current group bg-white rounded-2xl border border-border p-8 sm:p-10 hover:shadow-md transition-all duration-300">
+                    <span class="timeline-node" aria-hidden="true"></span>
                     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
                         <div>
                             <h3 class="text-2xl font-bold text-primary">QA Engineer</h3>
@@ -415,6 +420,7 @@
                 </div>
 
                 <div class="experience-card group bg-white rounded-2xl border border-border p-8 sm:p-10 hover:shadow-md transition-all duration-300">
+                    <span class="timeline-node" aria-hidden="true"></span>
                     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
                         <div>
                             <h3 class="text-2xl font-bold text-primary">QA Manual Internship</h3>
@@ -455,7 +461,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-6 lg:px-12">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-12">
+            <div class="section-heading mb-12">
                 <p class="text-accent font-medium text-sm mb-2 uppercase tracking-wider">What I've Built</p>
                 <h2 class="text-4xl sm:text-5xl font-bold text-primary">Selected Projects</h2>
                 <p class="text-primary-muted text-lg mt-4">Automation frameworks and testing solutions I've developed.</p>
@@ -471,7 +477,7 @@
                                 Automation Testing
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
-                                <a href="https://github.com/Zhanpar789/Automation-test-subsidi-pertamina" class="hover:text-accent transition-colors">Subsidi Pertamina</a>
+                                <a href="https://github.com/Zhanpar789/Automation-test-subsidi-pertamina" target="_blank" rel="noreferrer" class="hover:text-accent transition-colors">Subsidi Pertamina</a>
                             </h3>
                             <p class="text-primary-muted mb-8 leading-relaxed">
                                 Built a Cypress automation framework with Cucumber BDD to automate LPG subsidy sales reporting for Subsidi Tepat Pertamina. Automates KK number input from Excel data, replacing repetitive manual copy-paste workflows and reducing human error.
@@ -483,25 +489,29 @@
                                 <span class="px-3 py-1.5 rounded-md bg-gray-50 text-xs font-mono text-primary-muted border border-border">Node.js</span>
                             </div>
                             <div class="flex gap-4">
-                                <a href="https://github.com/Zhanpar789/Automation-test-subsidi-pertamina" target="_blank" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
+                                <a href="https://github.com/Zhanpar789/Automation-test-subsidi-pertamina" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
                                     <i class="fa-brands fa-github"></i> Source Code
                                 </a>
-                                <a href="https://github.com/Zhanpar789/Automation-test-subsidi-pertamina" target="_blank" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
+                                <a href="https://github.com/Zhanpar789/Automation-test-subsidi-pertamina" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
                                     <i data-lucide="external-link" class="w-4 h-4"></i> View Project
                                 </a>
                             </div>
                         </div>
-                        <div class="relative bg-gray-50 p-6 flex items-center justify-center min-h-[300px] border-t md:border-t-0 md:border-l border-border">
-                            <div class="font-mono text-xs text-primary-muted leading-relaxed w-full max-w-sm">
-                                <div><span class="text-accent">Given</span> <span class="text-green-600">user login to Subsidi App</span></div>
-                                <div class="mt-2"><span class="text-accent">When</span> <span class="text-green-600">user input KK number</span></div>
-                                <div class="pl-4">cy.get(<span class="text-green-600">"#inputKK"</span>)</div>
-                                <div class="pl-8">.<span class="text-blue-600">type</span>(kkNumber);</div>
-                                <div class="mt-2"><span class="text-accent">Then</span> <span class="text-green-600">data submitted successfully</span></div>
-                                <div class="pl-4">cy.get(<span class="text-green-600">".btn-submit"</span>)</div>
-                                <div class="pl-8">.<span class="text-blue-600">click</span>();</div>
-                                <div class="pl-4"><span class="text-primary">expect</span>(<span class="text-green-600">".success-msg"</span>)</div>
-                                <div class="pl-8">.<span class="text-blue-600">should</span>(<span class="text-green-600">"be.visible"</span>);</div>
+                        <div class="project-preview relative bg-gray-50 p-6 flex items-center justify-center min-h-[300px] border-t md:border-t-0 md:border-l border-border">
+                            <div class="code-window font-mono text-xs text-primary-muted leading-relaxed w-full max-w-sm">
+                                <div class="code-window-bar"><span></span><span></span><span></span><strong>sales-report.feature</strong></div>
+                                <div class="code-content">
+                                    <div><span class="text-accent">Given</span> <span class="text-green-600">user login to Subsidi App</span></div>
+                                    <div class="mt-2"><span class="text-accent">When</span> <span class="text-green-600">user input KK number</span></div>
+                                    <div class="pl-4">cy.get(<span class="text-green-600">"#inputKK"</span>)</div>
+                                    <div class="pl-8">.<span class="text-blue-600">type</span>(kkNumber);</div>
+                                    <div class="mt-2"><span class="text-accent">Then</span> <span class="text-green-600">data submitted successfully</span></div>
+                                    <div class="pl-4">cy.get(<span class="text-green-600">".btn-submit"</span>)</div>
+                                    <div class="pl-8">.<span class="text-blue-600">click</span>();</div>
+                                    <div class="pl-4"><span class="text-primary">expect</span>(<span class="text-green-600">".success-msg"</span>)</div>
+                                    <div class="pl-8">.<span class="text-blue-600">should</span>(<span class="text-green-600">"be.visible"</span>);</div>
+                                </div>
+                                <div class="code-result"><i data-lucide="check" class="w-3 h-3"></i> 8 scenarios passed</div>
                             </div>
                         </div>
                     </div>
@@ -516,7 +526,7 @@
                                 Automation Testing
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
-                                <a href="https://github.com/Zhanpar789/Automation-Test-SwaggerLabs-Cypress" class="hover:text-accent transition-colors">Swagger Labs</a>
+                                <a href="https://github.com/Zhanpar789/Automation-Test-SwaggerLabs-Cypress" target="_blank" rel="noreferrer" class="hover:text-accent transition-colors">Swagger Labs</a>
                             </h3>
                             <p class="text-primary-muted mb-8 leading-relaxed">
                                 Built an end-to-end automation framework using Cypress and Page Object Model (POM). Automated login, product, cart, and checkout workflows with reusable test components.
@@ -527,27 +537,31 @@
                                 <span class="px-3 py-1.5 rounded-md bg-gray-50 text-xs font-mono text-primary-muted border border-border">Cucumber</span>
                             </div>
                             <div class="flex gap-4">
-                                <a href="https://github.com/Zhanpar789/Automation-Test-SwaggerLabs-Cypress" target="_blank" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
+                                <a href="https://github.com/Zhanpar789/Automation-Test-SwaggerLabs-Cypress" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
                                     <i class="fa-brands fa-github"></i> Source Code
                                 </a>
-                                <a href="https://github.com/Zhanpar789/Automation-Test-SwaggerLabs-Cypress" target="_blank" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
+                                <a href="https://github.com/Zhanpar789/Automation-Test-SwaggerLabs-Cypress" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
                                     <i data-lucide="external-link" class="w-4 h-4"></i> View Project
                                 </a>
                             </div>
                         </div>
-                        <div class="relative bg-gray-50 p-6 flex items-center justify-center min-h-[300px] border-t md:border-t-0 md:border-l border-border">
-                            <div class="font-mono text-xs text-primary-muted leading-relaxed w-full max-w-sm">
-                                <div><span class="text-accent">class</span> <span class="text-primary">ProductPage</span> {</div>
-                                <div class="pl-4">productData = {</div>
-                                <div class="pl-8"><span class="text-green-600">"Backpack"</span>: <span class="text-green-600">"sauce-labs-backpack"</span>,</div>
-                                <div class="pl-8"><span class="text-green-600">"T-Shirt"</span>: <span class="text-green-600">"sauce-labs-bolt-t-shirt"</span>,</div>
-                                <div class="pl-8"><span class="text-green-600">"Bike Light"</span>: <span class="text-green-600">"sauce-labs-bike-light"</span></div>
-                                <div class="pl-4">};</div>
-                                <div class="pl-4 mt-2"><span class="text-blue-600">addToCart</span>(name) {</div>
-                                <div class="pl-8"><span class="text-accent">const</span> id = <span class="text-accent">this</span>.productData[name];</div>
-                                <div class="pl-8">cy.get(<span class="text-green-600">`[data-test="...${id}"]`</span>).click();</div>
-                                <div class="pl-4">}</div>
-                                <div>}</div>
+                        <div class="project-preview relative bg-gray-50 p-6 flex items-center justify-center min-h-[300px] border-t md:border-t-0 md:border-l border-border">
+                            <div class="code-window font-mono text-xs text-primary-muted leading-relaxed w-full max-w-sm">
+                                <div class="code-window-bar"><span></span><span></span><span></span><strong>product.page.js</strong></div>
+                                <div class="code-content">
+                                    <div><span class="text-accent">class</span> <span class="text-primary">ProductPage</span> {</div>
+                                    <div class="pl-4">productData = {</div>
+                                    <div class="pl-8"><span class="text-green-600">"Backpack"</span>: <span class="text-green-600">"sauce-labs-backpack"</span>,</div>
+                                    <div class="pl-8"><span class="text-green-600">"T-Shirt"</span>: <span class="text-green-600">"sauce-labs-bolt-t-shirt"</span>,</div>
+                                    <div class="pl-8"><span class="text-green-600">"Bike Light"</span>: <span class="text-green-600">"sauce-labs-bike-light"</span></div>
+                                    <div class="pl-4">};</div>
+                                    <div class="pl-4 mt-2"><span class="text-blue-600">addToCart</span>(name) {</div>
+                                    <div class="pl-8"><span class="text-accent">const</span> id = <span class="text-accent">this</span>.productData[name];</div>
+                                    <div class="pl-8">cy.get(<span class="text-green-600">`[data-test="...${id}"]`</span>).click();</div>
+                                    <div class="pl-4">}</div>
+                                    <div>}</div>
+                                </div>
+                                <div class="code-result"><i data-lucide="check" class="w-3 h-3"></i> Checkout flow passed</div>
                             </div>
                         </div>
                     </div>
@@ -556,18 +570,22 @@
                 <!-- Project 3 -->
                 <div class="project-card group bg-white rounded-2xl border border-border overflow-hidden hover:shadow-md transition-all duration-300">
                     <div class="grid md:grid-cols-2">
-                        <div class="relative bg-gray-50 p-6 flex items-center justify-center min-h-[300px] order-2 md:order-1 border-t md:border-t-0 md:border-r border-border">
-                            <div class="font-mono text-xs text-primary-muted leading-relaxed w-full max-w-sm">
-                                <div><span class="text-accent">it</span>(<span class="text-green-600">"Upload Image - Negative"</span>,</div>
-                                <div class="pl-4"><span class="text-accent">async function</span>() {</div>
-                                <div class="pl-4"><span class="text-accent">const</span> res = <span class="text-accent">await</span> request</div>
-                                <div class="pl-8">.<span class="text-blue-600">post</span>(<span class="text-green-600">"/v2/pet/999999/uploadImage"</span>)</div>
-                                <div class="pl-8">.<span class="text-blue-600">attach</span>(<span class="text-green-600">"file"</span>, data, <span class="text-green-600">"test.png"</span>);</div>
-                                <div class="mt-2 pl-4"><span class="text-primary">expect</span>(res.status).to.equal(<span class="text-green-600">404</span>);</div>
-                                <div class="pl-4"><span class="text-primary">expect</span>(res.body)</div>
-                                <div class="pl-8">.to.have.property(<span class="text-green-600">"message"</span>)</div>
-                                <div class="pl-8">.that.includes(<span class="text-green-600">"Pet not found"</span>);</div>
-                                <div class="pl-4">});</div>
+                        <div class="project-preview relative bg-gray-50 p-6 flex items-center justify-center min-h-[300px] order-2 md:order-1 border-t md:border-t-0 md:border-r border-border">
+                            <div class="code-window font-mono text-xs text-primary-muted leading-relaxed w-full max-w-sm">
+                                <div class="code-window-bar"><span></span><span></span><span></span><strong>upload-image.spec.js</strong></div>
+                                <div class="code-content">
+                                    <div><span class="text-accent">it</span>(<span class="text-green-600">"Upload Image - Negative"</span>,</div>
+                                    <div class="pl-4"><span class="text-accent">async function</span>() {</div>
+                                    <div class="pl-4"><span class="text-accent">const</span> res = <span class="text-accent">await</span> request</div>
+                                    <div class="pl-8">.<span class="text-blue-600">post</span>(<span class="text-green-600">"/v2/pet/999999/uploadImage"</span>)</div>
+                                    <div class="pl-8">.<span class="text-blue-600">attach</span>(<span class="text-green-600">"file"</span>, data, <span class="text-green-600">"test.png"</span>);</div>
+                                    <div class="mt-2 pl-4"><span class="text-primary">expect</span>(res.status).to.equal(<span class="text-green-600">404</span>);</div>
+                                    <div class="pl-4"><span class="text-primary">expect</span>(res.body)</div>
+                                    <div class="pl-8">.to.have.property(<span class="text-green-600">"message"</span>)</div>
+                                    <div class="pl-8">.that.includes(<span class="text-green-600">"Pet not found"</span>);</div>
+                                    <div class="pl-4">});</div>
+                                </div>
+                                <div class="code-result"><i data-lucide="check" class="w-3 h-3"></i> Error contract validated</div>
                             </div>
                         </div>
                         <div class="p-8 sm:p-10 flex flex-col justify-center order-1 md:order-2">
@@ -576,7 +594,7 @@
                                 API Automation Testing
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-4 group-hover:text-accent transition-colors">
-                                <a href="https://github.com/Zhanpar789/API-Automation-MochaChai/tree/master" class="hover:text-accent transition-colors">Petstore Swagger</a>
+                                <a href="https://github.com/Zhanpar789/API-Automation-MochaChai/tree/master" target="_blank" rel="noreferrer" class="hover:text-accent transition-colors">Petstore Swagger</a>
                             </h3>
                             <p class="text-primary-muted mb-8 leading-relaxed">
                                 Implemented API automation testing for Swagger Petstore using Mocha and Chai. Covered endpoint validation, request/response assertions, file upload testing, and error handling scenarios to ensure API functionality and stability.
@@ -588,10 +606,10 @@
                                 <span class="px-3 py-1.5 rounded-md bg-gray-50 text-xs font-mono text-primary-muted border border-border">JavaScript</span>
                             </div>
                             <div class="flex gap-4">
-                                <a href="https://github.com/Zhanpar789/API-Automation-MochaChai/tree/master" target="_blank" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
+                                <a href="https://github.com/Zhanpar789/API-Automation-MochaChai/tree/master" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
                                     <i class="fa-brands fa-github"></i> Source Code
                                 </a>
-                                <a href="https://github.com/Zhanpar789/API-Automation-MochaChai/tree/master" target="_blank" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
+                                <a href="https://github.com/Zhanpar789/API-Automation-MochaChai/tree/master" target="_blank" rel="noreferrer" class="flex items-center gap-2 text-sm text-primary-muted hover:text-accent transition-colors">
                                     <i data-lucide="external-link" class="w-4 h-4"></i> View Project
                                 </a>
                             </div>
@@ -605,13 +623,13 @@
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-6 lg:px-12 bg-gray-50/50">
         <div class="max-w-3xl mx-auto">
-            <div class="bg-white rounded-2xl border border-border p-10 sm:p-16 text-center">
+            <div class="contact-card bg-white rounded-2xl border border-border p-10 sm:p-16 text-center">
                 <p class="text-accent font-medium text-sm mb-3 uppercase tracking-wider">What's Next?</p>
                 <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-6">Get In Touch</h2>
                 <p class="text-primary-muted text-lg mb-10 max-w-lg mx-auto">
                     Currently looking for new opportunities in Automation Engineering. Whether you have a question about my stack or just want to say hi, my inbox is always open.
                 </p>
-                <a href="mailto:zhanfar.isman@gmail.com" class="inline-flex items-center gap-3 px-10 py-5 rounded-xl font-semibold bg-primary text-white hover:bg-primary-light transition-all text-lg">
+                <a href="mailto:zhanfar.isman@gmail.com" class="button-primary inline-flex items-center gap-3 px-10 py-5 rounded-xl font-semibold bg-primary text-white hover:bg-primary-light transition-all text-lg">
                     <i data-lucide="mail" class="w-5 h-5"></i>
                     Say Hello
                 </a>
@@ -625,14 +643,14 @@
             <div class="flex items-center gap-2">
                 <div class="w-6 h-6 rounded-md bg-primary flex items-center justify-center text-white font-bold text-xs">Z</div>
                 <p class="text-sm text-primary-muted">
-                    &copy; 2024 Zhanpar Isman Andria
+                    &copy; <span id="current-year">2024</span> Zhanpar Isman Andria
                 </p>
             </div>
             <div class="flex items-center gap-6">
-                <a href="https://github.com/Zhanpar789" target="_blank" class="text-primary-muted hover:text-primary transition-colors">
+                <a href="https://github.com/Zhanpar789" target="_blank" rel="noreferrer" class="text-primary-muted hover:text-primary transition-colors">
                     <i class="fa-brands fa-github text-lg"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/zhanparismanandria/" target="_blank" class="text-primary-muted hover:text-primary transition-colors">
+                <a href="https://www.linkedin.com/in/zhanparismanandria/" target="_blank" rel="noreferrer" class="text-primary-muted hover:text-primary transition-colors">
                     <i class="fa-brands fa-linkedin text-lg"></i>
                 </a>
             </div>
